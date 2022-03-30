@@ -1,0 +1,48 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-5 col-sm-12'>
+      <h1>Editar informações</h1>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="mb-4">
+          <%= f.label :email, class: 'form-label' %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+        </div>
+        
+        <div class="mb-4">
+          <%= f.label :name, 'Empresa', class: 'form-label' %><br />
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        
+        <div class="mb-4">
+          <%= f.label :description, 'Descrição', class: 'form-label' %><br />
+          <%= f.text_area :description, class: 'form-control' %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :password, "Senha", class: 'form-label' %><br />
+          <% if @minimum_password_length %>
+          <em>Mínimo - (<%= @minimum_password_length %> caracteres)</em>
+          <em>Deixe em branco para não alterar a senha</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :password_confirmation, "Repita a senha", class: 'form-label' %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+
+        <div class="mb-4">
+          <%= f.label :current_password, "Senha antiga", class: 'form-label' %><br />
+          <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control' %>
+        </div>
+
+        <div class="mb-4 mt-5">
+          <%= f.submit "Editar", class: "btn btn-danger bg-site-red" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
